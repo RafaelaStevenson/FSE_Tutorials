@@ -1,10 +1,10 @@
 from decimal import Decimal, InvalidOperation
 from typing import List, Tuple
 
-
 # Constants
 CURRENCY_SYMBOL = "R"
 # TODO: Remove the TRANSACTION_TYPES constant below - we are not using it in the Transaction class
+
 
 class Transaction:
     def __init__(self, date, description, amount, category):
@@ -37,27 +37,28 @@ def calculate_total_expenses(transactions: List[Transaction]) -> Decimal:
     """
     balance = Decimal(0)
     for transaction in transactions:
-        if transaction.amount < 0: 
-            balance += transaction.amount 
-    return balance 
+        if transaction.amount < 0:
+            balance += transaction.amount
+    return balance
 
 
 # TODO: Implement this function to sum all transactions with positive amounts
 def calculate_total_income(transactions: List[Transaction]) -> Decimal:
     """Calculates the total income from a list of transactions.
-    
+
     Args:
         transactions: A list of Transaction objects.
 
     Returns:
         The total income as a Decimal (should be positive).
     """
-    total = 0 
+    total = 0
     for transaction in transactions:
-        if transaction.amount  > 0:
-            total += transaction.amount 
-            
-    return total 
+        if transaction.amount > 0:
+            total += transaction.amount
+
+    return total
+
 
 # NOTE: This function is already complete - no changes needed here!
 def format_currency(amount: Decimal) -> str:
@@ -76,7 +77,7 @@ def format_currency(amount: Decimal) -> str:
     """
     return f"{CURRENCY_SYMBOL} {amount:,.2f}"
 
-# TODO: Remove the entire add_transaction function below (no longer needed with Transaction class)
+    # TODO: Remove the entire add_transaction function below (no longer needed with Transaction class)
 
     """
     Add a new transaction to the transaction list.
@@ -113,6 +114,7 @@ def format_currency(amount: Decimal) -> str:
     transactions.append(transaction)
     return transactions
 
+
 # TODO: Update this function to work with Transaction objects instead of dicts.
 # Change List[dict] to List[Transaction], use dot notation (t.amount), and update docstring.
 # Hint: With Transaction objects, simply sum all amounts (expenses are negative, income is positive)!
@@ -137,7 +139,3 @@ def calculate_balance(transactions: List[dict]) -> Decimal:
         Decimal('4000')
     """
     return calculate_total_expenses(transactions) + calculate_total_income(transactions)
-
-
-    
-
