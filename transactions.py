@@ -35,11 +35,6 @@ def calculate_total_expenses(transactions: List[Transaction]) -> Decimal:
         >>> calculate_total_expenses(transactions)
         Decimal('-2000.00')
     """
-    balance = Decimal(0)
-    for transaction in transactions:
-        if transaction.amount < 0:
-            balance += transaction.amount
-    return balance
 
 
 # TODO: Implement this function to sum all transactions with positive amounts
