@@ -73,7 +73,6 @@ class Config:
 Run the configuration tests to verify your environment variables are loaded correctly:
 
 ```bash
-pytest tests/test_config.py
 ```
 
 If successful, you should see both tests pass!
